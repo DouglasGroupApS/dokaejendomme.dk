@@ -52,10 +52,35 @@
   .pill.orange:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
   .pill[disabled] { opacity: .5; cursor: default; transform: none; }
 
-  .intro { padding: 40px 0 36px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: end; }
+  .intro { padding: 40px 0 28px; }
   .intro h1 { font-size: clamp(44px, 6.4vw, 88px); line-height: .98; }
   .intro p { color: var(--ink-2); margin: 18px 0 0; max-width: 46ch; }
-  .intro img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+  /* Billederne: karrusel man kan swipe eller bladre i med pilene, og i fuld skærm */
+  .karrusel { position: relative; }
+  .rum { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; height: 440px; }
+  .rum::-webkit-scrollbar { display: none; }
+  .foto { position: relative; flex: 0 0 62%; scroll-snap-align: start; border: 0; padding: 0; border-radius: 16px; overflow: hidden; background: var(--linje); cursor: zoom-in; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .foto span { position: absolute; left: 12px; bottom: 12px; background: rgba(250,246,240,.92); font: 500 14px "DM Sans", Arial, sans-serif; color: var(--ink); padding: 5px 11px; border-radius: 999px; }
+  .foto:hover img { transform: scale(1.03); }
+  .pilknap { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.94);
+    box-shadow: 0 2px 10px rgba(29,27,25,.2); font-size: 22px; line-height: 1; cursor: pointer; color: var(--ink); z-index: 2; }
+  .pilknap.venstre { left: 12px; } .pilknap.hoejre { right: 12px; }
+  .pilknap[disabled] { opacity: 0; pointer-events: none; }
+  .rum-hint { font-size: 14px; color: var(--ink-2); margin: 10px 0 36px; }
+  .lys { position: fixed; inset: 0; z-index: 50; background: rgba(20,18,16,.96); }
+  .lys-spor { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .lys-spor::-webkit-scrollbar { display: none; }
+  .lys-spor figure { flex: 0 0 100%; margin: 0; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 56px 16px 24px; }
+  .lys-spor img { max-height: calc(100vh - 120px); max-width: 100%; border-radius: 12px; }
+  .lys-spor figcaption { color: #fff; font-size: 15px; margin-top: 12px; }
+  .lys .luk { position: absolute; top: 10px; right: 14px; width: 48px; height: 48px; border: 0; background: none; color: #fff; font-size: 40px; line-height: 1; cursor: pointer; z-index: 3; }
+  .lys .pilknap { background: rgba(255,255,255,.18); color: #fff; box-shadow: none; }
+  .fast { padding: 14px 16px; border-radius: 14px; background: var(--orange-lys); color: var(--ink); font-size: 16px; font-weight: 500; }
+  form textarea { width: 100%; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--linje); background: var(--creme);
+    font: 400 17px "DM Sans", Arial, sans-serif; color: var(--ink); resize: vertical; }
+  form textarea:focus { outline: none; border-color: var(--orange); background: #fff; }
+  form label small { font-weight: 400; color: var(--ink-2); }
 
   .fakta { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 22px 0 0; padding: 0; list-style: none; font-size: 16px; }
   .fakta li { display: flex; gap: 8px; align-items: baseline; }
@@ -110,7 +135,9 @@
     .intro { padding-top: 16px; }
     .kort { padding: 22px 18px; margin-bottom: 48px; }
     .tider { grid-template-columns: repeat(3, 1fr); }
-    .intro img { aspect-ratio: 16 / 9; }
+    .rum { height: 300px; gap: 8px; }
+    .foto { flex-basis: 86%; }
+    .pilknap { width: 38px; height: 38px; font-size: 20px; }
     .pill { width: 100%; }
   }
 </style>
@@ -142,8 +169,20 @@
         <li><b>Husleje i alt</b> 6.200 kr. om måneden</li>
       </ul>
     </div>
-    <img src="billeder/stuen-tv-05-stue.jpg" alt="Stuen i lejligheden med tre fag vinduer" width="1200" height="900">
   </section>
+
+  <section class="karrusel" aria-label="Billeder af alle rum">
+    <button type="button" class="pilknap venstre" id="rumForrige" aria-label="Forrige billede">‹</button>
+    <div class="rum" id="rum">
+      <button type="button" class="foto" data-i="0"><img src="billeder/stuen-tv-05-stue.jpg" alt="Stuen"><span>Stue</span></button>
+      <button type="button" class="foto" data-i="1"><img src="billeder/stuen-tv-02-koekken-alrum.jpg" alt="Køkken og alrum" loading="lazy"><span>Køkken og alrum</span></button>
+      <button type="button" class="foto" data-i="2"><img src="billeder/stuen-tv-03-koekken.jpg" alt="Køkken" loading="lazy"><span>Køkken</span></button>
+      <button type="button" class="foto" data-i="3"><img src="billeder/stuen-tv-01-vaerelse.jpg" alt="Værelse" loading="lazy"><span>Værelse</span></button>
+      <button type="button" class="foto" data-i="4"><img src="billeder/stuen-tv-04-bad.jpg" alt="Bad" loading="lazy"><span>Bad</span></button>
+    </div>
+    <button type="button" class="pilknap hoejre" id="rumNaeste" aria-label="Næste billede">›</button>
+  </section>
+  <p class="rum-hint">Swipe eller brug pilene for at se alle rum. Tryk på et billede for at se det stort.</p>
 
   <div class="kort" id="booking">
     <div class="trin" id="trin">
@@ -151,7 +190,6 @@
         <h2>1. Vælg en tid</h2>
         <p class="hjaelp">Hver tid er et kvarter, og hver tid kan kun bookes af én.</p>
         <div id="tidsliste"><p class="indlaeser">Henter ledige tider …</p></div>
-        <div class="forklaring"><span>Ledig</span><span class="valgt">Valgt</span><span class="opt">Optaget</span></div>
       </div>
       <div>
         <h2>2. Dine oplysninger</h2>
@@ -161,11 +199,12 @@
           <div class="felt"><label for="navn">Navn</label><input id="navn" name="navn" autocomplete="name" required></div>
           <div class="felt"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
           <div class="felt"><label for="mail">Mail</label><input id="mail" name="mail" type="email" autocomplete="email" required></div>
-          <div class="felt"><label for="lejemaal">Hvilket lejemål?</label>
-            <select id="lejemaal" name="lejemaal">
-              <option>Stuen tv, 2 værelser, 63 m²</option>
-              <option>Et andet lejemål</option>
-            </select>
+          <div class="felt"><label>Lejemål</label>
+            <div class="fast">Stuen tv, 2 værelser, 63 m² · ledig fra 1. november 2026</div>
+            <input type="hidden" name="lejemaal" value="Stuen tv, 2 værelser, 63 m²">
+          </div>
+          <div class="felt"><label for="om">Lidt om dig <small>(frivilligt)</small></label>
+            <textarea id="om" name="om" rows="4" maxlength="1000" placeholder="Fx hvem der skal bo i lejligheden, hvad du laver, og hvornår du kan flytte ind."></textarea>
           </div>
           <div class="faelde" aria-hidden="true"><label for="hjemmeside">Lad dette felt være tomt</label><input id="hjemmeside" name="hjemmeside" tabindex="-1" autocomplete="off"></div>
           <p class="fejl" id="fejl" hidden></p>
@@ -185,6 +224,19 @@
     </div>
   </div>
 </main>
+
+<div class="lys" id="lys" hidden role="dialog" aria-label="Billeder i fuld skærm">
+  <button type="button" class="luk" id="lysLuk" aria-label="Luk">×</button>
+  <button type="button" class="pilknap venstre" id="lysForrige" aria-label="Forrige billede">‹</button>
+  <div class="lys-spor" id="lysSpor">
+    <figure><img src="billeder/stuen-tv-05-stue.jpg" alt="Stuen" loading="lazy"><figcaption>Stue</figcaption></figure>
+    <figure><img src="billeder/stuen-tv-02-koekken-alrum.jpg" alt="Køkken og alrum" loading="lazy"><figcaption>Køkken og alrum</figcaption></figure>
+    <figure><img src="billeder/stuen-tv-03-koekken.jpg" alt="Køkken" loading="lazy"><figcaption>Køkken</figcaption></figure>
+    <figure><img src="billeder/stuen-tv-01-vaerelse.jpg" alt="Værelse" loading="lazy"><figcaption>Værelse</figcaption></figure>
+    <figure><img src="billeder/stuen-tv-04-bad.jpg" alt="Bad" loading="lazy"><figcaption>Bad</figcaption></figure>
+  </div>
+  <button type="button" class="pilknap hoejre" id="lysNaeste" aria-label="Næste billede">›</button>
+</div>
 
 <footer>
   <div class="wrap">
@@ -228,9 +280,12 @@ async function hentTider() {
   }
 }
 
-function tegn(tider) {
+function tegn(alle) {
+  // Kun ledige tider vises. Optagne tider er bare væk (Benjamin 26-10: farven for optaget gav ikke mening).
+  const tider = alle.filter(t => t.ledig);
   if (!tider.length) {
-    liste.innerHTML = '<p class="indlaeser">Der er ingen fremvisninger lige nu. Skriv til info@dokaejendomme.dk.</p>';
+    liste.innerHTML = '<p class="indlaeser">Alle tider er booket. Skriv til info@dokaejendomme.dk, så hører du fra os.</p>';
+    if (valgt) { valgt = null; opdaterValg(); }
     return;
   }
   const dage = {};
@@ -281,7 +336,7 @@ document.getElementById('formular').addEventListener('submit', async e => {
   const f = e.target;
   const data = {
     tid: valgt.id, navn: f.navn.value, telefon: f.telefon.value, mail: f.mail.value,
-    lejemaal: f.lejemaal.value, hjemmeside: f.hjemmeside.value
+    lejemaal: f.lejemaal.value, om: f.om.value, hjemmeside: f.hjemmeside.value
   };
   if (data.navn.trim().length < 2) return visFejl('Skriv dit navn.');
   if (data.telefon.replace(/\D/g, '').length < 8) return visFejl('Skriv et telefonnummer med mindst 8 cifre.');
@@ -312,6 +367,46 @@ document.getElementById('formular').addEventListener('submit', async e => {
 });
 
 hentTider();
+
+// Billederne
+const rum = document.getElementById('rum');
+const rumForrige = document.getElementById('rumForrige');
+const rumNaeste = document.getElementById('rumNaeste');
+function rumPile() {
+  rumForrige.disabled = rum.scrollLeft < 8;
+  rumNaeste.disabled = rum.scrollLeft + rum.clientWidth > rum.scrollWidth - 8;
+}
+function rumSkub(retning) {
+  const bredde = rum.querySelector('.foto').getBoundingClientRect().width + 12;
+  rum.scrollBy({ left: retning * bredde });
+}
+rumForrige.addEventListener('click', () => rumSkub(-1));
+rumNaeste.addEventListener('click', () => rumSkub(1));
+rum.addEventListener('scroll', rumPile, { passive: true });
+window.addEventListener('resize', rumPile);
+rumPile();
+
+const lys = document.getElementById('lys');
+const spor = document.getElementById('lysSpor');
+function lysTil(i, glat) {
+  spor.scrollTo({ left: i * spor.clientWidth, behavior: glat ? 'smooth' : 'auto' });
+}
+function lysNr() { return Math.round(spor.scrollLeft / spor.clientWidth); }
+rum.querySelectorAll('.foto').forEach(f => f.addEventListener('click', () => {
+  lys.hidden = false;
+  document.body.style.overflow = 'hidden';
+  lysTil(Number(f.dataset.i), false);
+}));
+function lysLuk() { lys.hidden = true; document.body.style.overflow = ''; }
+document.getElementById('lysLuk').addEventListener('click', lysLuk);
+document.getElementById('lysForrige').addEventListener('click', () => lysTil(Math.max(0, lysNr() - 1), true));
+document.getElementById('lysNaeste').addEventListener('click', () => lysTil(Math.min(4, lysNr() + 1), true));
+document.addEventListener('keydown', e => {
+  if (lys.hidden) return;
+  if (e.key === 'Escape') lysLuk();
+  if (e.key === 'ArrowRight') lysTil(Math.min(4, lysNr() + 1), true);
+  if (e.key === 'ArrowLeft') lysTil(Math.max(0, lysNr() - 1), true);
+});
 </script>
 </body>
 </html>
