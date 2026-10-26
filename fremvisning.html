@@ -64,7 +64,8 @@
   .trin { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
   .trin h2 { font-size: 30px; margin-bottom: 6px; }
   .trin .hjaelp { color: var(--ink-2); font-size: 16px; margin: 0 0 20px; }
-  .dag { font-weight: 700; font-size: 16px; margin: 0 0 12px; text-transform: capitalize; }
+  .dag { font-weight: 700; font-size: 16px; margin: 0 0 12px; }
+  .dag::first-letter { text-transform: uppercase; }
   .tider { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
   .tid { padding: 14px 0; border-radius: 14px; border: 1.5px solid var(--linje); background: var(--creme);
     font: 700 17px "DM Sans", Arial, sans-serif; color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
@@ -287,7 +288,10 @@ document.getElementById('formular').addEventListener('submit', async e => {
   knap.disabled = true;
   knap.textContent = 'Booker …';
   try {
-    const svar = await fetch(API, { method: 'POST', body: JSON.stringify(data) });
+    const stop = new AbortController();
+    const ur = setTimeout(() => stop.abort(), 30000);
+    const svar = await fetch(API, { method: 'POST', body: JSON.stringify(data), signal: stop.signal });
+    clearTimeout(ur);
     const r = await svar.json();
     if (r.ok) {
       document.getElementById('trin').hidden = true;
@@ -299,7 +303,7 @@ document.getElementById('formular').addEventListener('submit', async e => {
     visFejl(r.fejl || 'Noget gik galt. Prøv igen.');
     if (r.opdater) await hentTider();
   } catch (err) {
-    visFejl('Bookingen gik ikke igennem. Tjek forbindelsen og prøv igen.');
+    visFejl('Vi fik ikke svar. Genindlæs siden: står din tid som optaget, er den booket. Ellers prøv igen eller skriv til info@dokaejendomme.dk.');
   }
   knap.textContent = 'Book tiden';
   knap.disabled = !valgt;
