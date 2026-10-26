@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOKA Ejendomme · Hovedgaden 70, Rønde</title>
+<meta name="description" content="DOKA Ejendomme udlejer boliger og erhverv på Hovedgaden 70 i Rønde. Lys 2-værelses lejlighed ledig fra 1. november 2026.">
+<meta property="og:title" content="DOKA Ejendomme · Hovedgaden 70, Rønde">
+<meta property="og:description" content="Lys 2-værelses lejlighed i Rønde, ledig fra 1. november 2026. Boliger og erhverv på Hovedgaden 70.">
+<meta property="og:image" content="billeder/huset-3d.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62 40'%3E%3Cpath d='M5 38 V21 L19 9 L33 21 V38' stroke='%23ee8a43' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23 38 V24 L42 6 L58 22' stroke='%23ee8a43' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #ee8a43;
+    --orange-dyb: #c8622a;
+    --orange-lys: #fde7d5;
+    --mur: #b5523b;
+    --ink: #1d1b19;
+    --ink-2: #5d5853;
+    --creme: #faf6f0;
+    --linje: #e9e1d6;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--creme); color: var(--ink);
+    font-family: "DM Sans", Arial, sans-serif; font-size: 18px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; margin: 0; }
+  em.serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--orange-dyb); }
+  .smaa { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-dyb); margin: 0 0 20px; }
+
+  /* Logo */
+  .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo svg { width: 44px; height: 30px; }
+  .logo b { font-weight: 800; letter-spacing: 0.04em; font-size: 20px; }
+  .logo span { font-weight: 500; color: var(--ink-2); font-size: 20px; }
+
+  /* Knapper */
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .25s, background .25s, color .25s; }
+  .pill.orange { background: var(--orange); color: var(--ink); }
+  .pill.orange:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .pill.sort { background: var(--ink); color: #fff; }
+  .pill.sort:hover { background: var(--orange); color: var(--ink); transform: translateY(-2px); }
+  .pill.kant { border: 1.5px solid currentColor; }
+  .pill.kant:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .pil { transition: transform .25s; }
+  .pill:hover .pil { transform: translateX(4px); }
+
+  /* Menu */
+  .top { position: fixed; inset: 0 0 auto 0; z-index: 30; transition: background .3s; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+  .menu { display: flex; align-items: center; gap: 30px; font-size: 16px; font-weight: 500; }
+  .menu a:not(.pill) { text-decoration: none; position: relative; }
+  .menu a:not(.pill)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: var(--orange); transition: right .25s; }
+  .menu a:not(.pill):hover::after { right: 0; }
+  .menu .pill { padding: 11px 20px; }
+  @supports (animation-timeline: scroll()) {
+    .top { animation: menu-baggrund linear both; animation-timeline: scroll(); animation-range: 0 160px; }
+    @keyframes menu-baggrund { to { background: rgba(250,246,240,.94); box-shadow: 0 1px 0 var(--linje); backdrop-filter: blur(10px); } }
+  }
+
+  /* Top med tegningen */
+  .hero { padding-top: 168px; position: relative; }
+  .hero h1 { font-size: clamp(52px, 8.4vw, 128px); line-height: .96; max-width: 11ch; animation: op 1s .1s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-tekst { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+  .hero-tekst .side { max-width: 380px; animation: op 1s .35s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-tekst .side p { color: var(--ink-2); margin: 0 0 24px; }
+  .tegning { margin-top: 40px; }
+  .tegning svg { width: 100%; height: auto; }
+  @supports (animation-timeline: scroll()) {
+    .tegning svg { animation: svaev linear both; animation-timeline: scroll(); animation-range: 0 90vh; }
+    @keyframes svaev { to { transform: translateY(-6%) scale(1.04); } }
+  }
+
+  /* 3D-huset: vises i stedet for stregtegningen, når det kan køre */
+  .hus3d canvas { display: block; cursor: grab; touch-action: pan-y; }
+  .hus3d.traekker canvas { cursor: grabbing; }
+  .dreje-hint { display: none; text-align: center; font-size: 14px; color: var(--ink-2); margin: 6px 0 0; }
+  .tegning.er-3d > img.reserve { display: none; }
+  .tegning img.reserve { width: 100%; height: auto; display: block; }
+  .tegning.er-3d .dreje-hint { display: block; }
+  .hus3d { animation: frem 1.2s .3s ease both; }
+
+  /* Lejemålene på 3D-huset: markører, infovindue og knapper */
+  .hus3d { position: relative; }
+  .markoer { position: absolute; left: 0; top: 0; display: inline-flex; align-items: center; gap: 7px; margin: -16px 0 0 -12px;
+    padding: 6px 12px 6px 8px; border-radius: 999px; border: 0; background: rgba(255,255,255,.95); box-shadow: 0 2px 10px rgba(29,27,25,.18);
+    font: 700 13px "DM Sans", Arial, sans-serif; color: var(--ink); cursor: pointer; white-space: nowrap; transition: background .2s, color .2s; }
+  .markoer i { width: 10px; height: 10px; border-radius: 50%; background: #9c9790; box-shadow: 0 0 0 3px rgba(156,151,144,.25); }
+  .markoer.ledig i { background: var(--orange); box-shadow: 0 0 0 3px rgba(238,138,67,.3); animation: puls 2s infinite; }
+  .markoer:hover, .markoer.aktiv { background: var(--ink); color: #fff; }
+  .info-kort { position: absolute; left: 0; top: 0; width: 290px; background: #fff; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(29,27,25,.22); z-index: 5; animation: frem .25s ease forwards; opacity: 0; }
+  .info-kort img, .info-kort .pladsholder { display: block; width: 100%; height: 120px; object-fit: cover; }
+  .info-kort .chip { margin-bottom: 0; padding: 5px 12px; font-size: 13px; }
+  .info-kort { width: 260px; }
+  .info-tekst { padding: 16px 18px 18px; }
+  .info-tekst h3 { font-size: 24px; margin: 10px 0 2px; }
+  .info-tekst p { margin: 0 0 14px; color: var(--ink-2); font-size: 15px; }
+  .info-kort .luk { position: absolute; top: 8px; right: 8px; width: 34px; height: 34px; border-radius: 50%; border: 0;
+    background: rgba(255,255,255,.92); font-size: 22px; line-height: 1; cursor: pointer; }
+  .lille-pill { padding: 10px 18px; font-size: 15px; border: 0; cursor: pointer; font-family: inherit; }
+  .chip.graa { background: #eeeae4; color: var(--ink-2); }
+  .chip.graa i { background: #9c9790; animation: none; }
+  .pladsholder { background: repeating-linear-gradient(135deg, #f1ebe2 0 14px, #ebe3d7 14px 28px); border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center; text-align: center; color: var(--ink-2); font-size: 15px; aspect-ratio: 3 / 4; }
+  .pladsholder.stor { grid-column: 1 / 3; aspect-ratio: 4 / 3; }
+  .pladsholder.lille { border-radius: 0; aspect-ratio: auto; }
+  .enheder { margin-top: 28px; padding-bottom: 24px; }
+  .enheder-hoved { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-bottom: 14px; }
+  .enheder-hoved .smaa { margin: 0; }
+  .enheder-hoved p:last-child { margin: 0; color: var(--ink-2); font-size: 15px; max-width: 520px; }
+  .enhed-raekke { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .enhed-knap { text-align: left; border: 1px solid var(--linje); background: #fff; border-radius: 14px; padding: 14px; cursor: pointer;
+    font-family: inherit; color: var(--ink); display: flex; flex-direction: column; gap: 4px; transition: transform .2s, border-color .2s, background .2s; }
+  .enhed-knap b { font-size: 17px; font-weight: 700; }
+  .enhed-knap span { font-size: 13px; color: var(--ink-2); }
+  .enhed-knap em { font-style: normal; font-size: 12px; font-weight: 700; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; }
+  .enhed-knap em i { width: 8px; height: 8px; border-radius: 50%; background: #9c9790; }
+  .enhed-knap.ledig { border-color: var(--orange); }
+  .enhed-knap.ledig em { color: var(--orange-dyb); }
+  .enhed-knap.ledig em i { background: var(--orange); }
+  .enhed-knap:hover { transform: translateY(-2px); border-color: var(--ink); }
+  .enhed-knap.aktiv { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .enhed-knap.aktiv span, .enhed-knap.aktiv em { color: rgba(255,255,255,.75); }
+
+
+  /* Knapperne til lejemålene, med en lille tegning af huset (2026-10-22, erstatter markørerne på huset) */
+  .enhed-raekke { gap: 12px; }
+  .enhed-knap { padding: 14px 14px 16px; border-radius: 16px; gap: 3px; box-shadow: 0 1px 0 rgba(29,27,25,.04); }
+  .enhed-knap .mini { width: 100%; height: auto; max-width: 120px; margin: 0 0 10px; overflow: visible; }
+  .mini .zone { fill: #f3ece3; transition: fill .25s; }
+  .mini .zone.her { fill: #f6c7a2; }
+  .mini .omrids { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linejoin: round; }
+  .mini .jord { stroke: var(--ink-2); stroke-width: 1.2; stroke-linecap: round; }
+  .enhed-knap:hover .mini .zone.her, .enhed-knap.aktiv .mini .zone.her { fill: var(--orange); }
+  .enhed-knap.aktiv { background: #fff7f0; color: var(--ink); border-color: var(--orange); box-shadow: 0 0 0 3px rgba(238,138,67,.22); transform: translateY(-2px); }
+  .enhed-knap.aktiv span { color: var(--ink-2); }
+  .enhed-knap.aktiv em { color: var(--orange-dyb); }
+  .enhed-knap.aktiv em i { background: var(--orange); }
+  .enhed-info { margin-top: 14px; background: #fff; border: 1px solid var(--linje); border-radius: 18px; overflow: hidden;
+    display: grid; grid-template-columns: 240px 1fr; position: relative; animation: frem .25s ease forwards; opacity: 0; }
+  .enhed-info[hidden] { display: none; }
+  
+  .enhed-info .info-tekst { padding: 22px 26px; }
+  .enhed-info .chip { margin-bottom: 0; padding: 5px 12px; font-size: 13px; }
+  .enhed-info .luk { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--linje);
+    background: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+  @media (max-width: 640px) {
+    .enhed-info { grid-template-columns: 1fr; }
+    .enhed-knap { display: grid; grid-template-columns: 46px 1fr; column-gap: 10px; row-gap: 1px; align-items: center; padding: 10px; }
+    .enhed-knap .mini { grid-row: 1 / 4; max-width: 46px; margin: 0; }
+    .enhed-knap b { font-size: 15px; }
+    .enhed-knap span { font-size: 11px; }
+    .enhed-knap em { margin-top: 2px; font-size: 11px; }
+    .enheder { display: flex; flex-direction: column; }
+    .enhed-info { order: -1; margin: 0 0 16px; }
+  }
+  .tegning { scroll-margin-top: 84px; }
+
+  /* Forhåndsvisning af lejemålet: stort lodret billede, små billeder til højre, så fakta (2026-10-22) */
+  .enhed-info { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); padding: 14px; gap: 22px; }
+  .forh-billeder { display: grid; grid-template-columns: 1.35fr 1fr; gap: 8px; height: 360px; }
+  .enhed-info .forh-stor { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; min-height: 0; }
+  .enhed-info .forh-stor.pladsholder { aspect-ratio: auto; height: 100%; min-height: 0; border-radius: 12px; display: flex; }
+  .forh-smaa { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 8px; }
+  .forh-lille { padding: 0; border: 0; background: none; cursor: pointer; border-radius: 10px; overflow: hidden; min-height: 0; }
+  .enhed-info .forh-lille img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 0; border-radius: 10px; transition: transform .3s; }
+  .forh-lille:hover img { transform: scale(1.05); }
+  .enhed-info .forh-lille.pladsholder { border-radius: 10px; aspect-ratio: auto; min-height: 0; height: 100%; cursor: default;
+    background: repeating-linear-gradient(135deg, #f1ebe2 0 14px, #ebe3d7 14px 28px); }
+  .enhed-info .info-tekst { padding: 8px 8px 8px 0; display: flex; flex-direction: column; align-items: flex-start; }
+  .enhed-info .info-tekst h3 { font-size: 32px; margin: 12px 0 14px; }
+  dl.forh-fakta { display: grid; grid-template-columns: auto 1fr; margin: 0 0 20px; width: 100%; border-top: 1px solid var(--linje); }
+  dl.forh-fakta dt, dl.forh-fakta dd { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--linje); font-size: 15px; }
+  dl.forh-fakta dt { color: var(--ink-2); padding-right: 18px; }
+  @media (max-width: 760px) {
+    .enhed-info { grid-template-columns: 1fr; padding: 10px; gap: 12px; }
+    .forh-billeder { height: 300px; }
+    .enhed-info .info-tekst { padding: 0 6px 8px; }
+    .enhed-info .info-tekst h3 { font-size: 26px; }
+  }
+  /* Lejemålets egen side */
+  body.laast { overflow: hidden; }
+  .lejemaal-side { position: fixed; inset: 0; z-index: 60; background: var(--creme); overflow-y: auto; animation: frem .25s ease forwards; opacity: 0; }
+  .side-top { position: sticky; top: 0; background: rgba(250,246,240,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linje); z-index: 2; }
+  .side-top .wrap { height: 64px; display: flex; align-items: center; }
+  .tilbage { border: 0; background: none; font: 700 16px "DM Sans", Arial, sans-serif; cursor: pointer; padding: 8px 0; color: var(--ink); }
+  .side-indhold { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  .side-info h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1; margin: 6px 0 18px; }
+  .side-info .ind { color: var(--ink-2); margin: 0 0 24px; }
+  .lille-tekst { font-size: 14px; color: var(--ink-2); margin-top: 18px; }
+  .lejemaal-side .chip { margin-bottom: 18px; }
+  @media (max-width: 960px) {
+    .enhed-raekke { grid-template-columns: repeat(3, 1fr); }
+    .side-indhold { grid-template-columns: 1fr; gap: 32px; padding-top: 28px; }
+  }
+  @media (max-width: 640px) {
+    .enhed-raekke { grid-template-columns: repeat(2, 1fr); }
+    .markoer { font-size: 11px; padding: 4px 9px 4px 6px; }
+    .info-kort { position: relative; left: auto; top: auto; width: auto; margin-top: 10px; display: grid; grid-template-columns: 110px 1fr; transform: none !important; }
+    .info-kort[hidden] { display: none; }
+    .info-kort img, .info-kort .pladsholder { height: 100%; min-height: 130px; }
+    .info-tekst { padding: 12px 14px; }
+    .info-tekst h3 { font-size: 20px; margin-top: 6px; }
+  }
+  /* Stregtegningen tegner sig selv */
+  .streg { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: tegn 2.4s cubic-bezier(.6,.1,.2,1) forwards; }
+  .streg.tynd { stroke-width: 1.3; }
+  .streg.orange { stroke: var(--orange); stroke-width: 3; }
+  .s2 { animation-delay: .35s; } .s3 { animation-delay: .7s; } .s4 { animation-delay: 1.05s; }
+  .fyld { opacity: 0; animation: frem 1.2s 1.9s ease forwards; }
+  .flade { stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; fill-opacity: 0; animation: tegn 2s cubic-bezier(.6,.1,.2,1) forwards, fyldes 1s ease forwards; }
+  .flade.tynd { stroke-width: 1.2; }
+  @keyframes fyldes { to { fill-opacity: 1; } }
+  @keyframes tegn { to { stroke-dashoffset: 0; } }
+  @keyframes frem { to { opacity: 1; } }
+  @keyframes op { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+
+  /* Rul-animationer */
+  @supports (animation-timeline: view()) {
+    .kom { animation: op linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+    .foto img { animation: zoom linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; }
+    @keyframes zoom { from { transform: scale(1.18); } to { transform: scale(1); } }
+    .etage { animation: rejs linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+    @keyframes rejs { from { opacity: 0; transform: translateY(50px) scale(.96); } to { opacity: 1; transform: none; } }
+  }
+
+  section { padding: 140px 0; }
+
+  /* Lejligheden */
+  .ledig-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; }
+  .info { position: sticky; top: 110px; }
+  .info h2 { font-size: clamp(40px, 4.6vw, 64px); line-height: 1.02; margin-bottom: 24px; }
+  .info > p { color: var(--ink-2); margin: 0 0 32px; }
+  .chip { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 700; padding: 8px 16px; border-radius: 999px; background: var(--orange-lys); color: var(--orange-dyb); margin-bottom: 26px; }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(238,138,67,.6); animation: puls 2s infinite; }
+  @keyframes puls { 70% { box-shadow: 0 0 0 10px rgba(238,138,67,0); } 100% { box-shadow: 0 0 0 0 rgba(238,138,67,0); } }
+  .tal { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0 44px; padding: 26px 0; border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--linje); margin-bottom: 8px; }
+  .tal b { display: block; font-size: 52px; font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
+  .tal span { font-size: 14px; color: var(--ink-2); }
+  dl.fakta { display: grid; grid-template-columns: auto 1fr; margin: 0 0 32px; }
+  dl.fakta dt, dl.fakta dd { padding: 11px 0; border-bottom: 1px solid var(--linje); margin: 0; font-size: 16px; }
+  dl.fakta dt { color: var(--ink-2); padding-right: 24px; }
+  dl.fakta dd { text-align: right; }
+  .knapper { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .galleri { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .foto { position: relative; border-radius: var(--radius); overflow: hidden; display: block; background: var(--linje); aspect-ratio: 3 / 4; }
+  .foto.stor { grid-column: 1 / 3; aspect-ratio: 4 / 4.4; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .foto span { position: absolute; left: 16px; bottom: 16px; background: rgba(250,246,240,.92); font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; }
+  .foto:hover img { transform: scale(1.04); }
+
+  /* Billede i fuld skærm uden script */
+  .lys { position: fixed; inset: 0; z-index: 50; background: rgba(20,18,16,.94); display: none; align-items: center; justify-content: center; padding: 24px; }
+  .lys:target { display: flex; animation: frem .3s ease forwards; opacity: 0; }
+  .lys img { max-height: 90vh; width: auto; border-radius: 12px; }
+  .lys a.luk { position: absolute; top: 18px; right: 22px; color: #fff; font-size: 40px; line-height: 1; text-decoration: none; }
+
+  /* Huset etage for etage */
+  .huset { background: var(--ink); color: #fff; border-radius: 40px 40px 0 0; }
+  .huset .smaa { color: var(--orange); }
+  .huset-hoved { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: 72px; }
+  .huset-hoved h2 { font-size: clamp(40px, 5vw, 72px); line-height: 1; max-width: 12ch; }
+  .huset-hoved p { color: rgba(255,255,255,.65); max-width: 400px; margin: 0; }
+  .plan { display: grid; grid-template-columns: 1fr 1fr 0.85fr 0.85fr; gap: 10px; max-width: 1000px; margin: 0 auto; }
+  .tag { grid-column: 1 / 3; height: 96px; position: relative; }
+  .tag svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .tom { grid-column: 3 / 5; }
+  .etage { border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 22px; min-height: 124px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; text-decoration: none; background: rgba(255,255,255,.04); }
+  .etage h3 { font-size: 20px; }
+  .etage small { font-size: 14px; color: rgba(255,255,255,.55); }
+  .etage .status { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5); display: inline-flex; align-items: center; gap: 8px; }
+  .etage .status i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); }
+  .etage.ledig { background: var(--orange); border-color: var(--orange); color: var(--ink); transition: transform .25s; }
+  .etage.ledig small, .etage.ledig .status { color: var(--ink); }
+  .etage.ledig .status i { background: var(--ink); }
+  .etage.ledig:hover { transform: translateY(-4px); }
+  .bred { grid-column: 1 / 3; }
+  .jord { grid-column: 1 / 5; height: 3px; background: var(--orange); border-radius: 3px; margin-top: 6px; }
+
+  /* Kontakt */
+  .kontakt { background: var(--orange); }
+  .kontakt .smaa { color: var(--ink); }
+  .kontakt h2 { font-size: clamp(44px, 6.4vw, 96px); line-height: .98; max-width: 13ch; }
+  .stor-mail { display: inline-block; margin-top: 44px; font-size: clamp(24px, 3.4vw, 44px); font-weight: 500; letter-spacing: -0.03em; text-decoration: none; border-bottom: 3px solid var(--ink); padding-bottom: 4px; word-break: break-all; transition: color .2s; }
+  .stor-mail:hover { color: #fff; border-color: #fff; }
+  .kontakt-bund { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 80px; padding-top: 28px; border-top: 1.5px solid var(--ink); }
+  .kontakt-bund small { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; opacity: .7; }
+  .mangler { background: #fff3c4; padding: 2px 8px; border-radius: 4px; font-size: 15px; font-weight: 500; }
+
+  footer { background: var(--ink); color: rgba(255,255,255,.6); font-size: 14px; padding: 28px 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  footer .logo b { color: #fff; font-size: 16px; } footer .logo span { color: rgba(255,255,255,.6); font-size: 16px; }
+  footer .logo svg { width: 34px; height: 24px; }
+
+  @media (max-width: 960px) {
+    .ledig-grid { grid-template-columns: 1fr; gap: 48px; }
+    .info { position: static; }
+    section { padding: 96px 0; }
+    .kontakt-bund { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .menu a:not(.pill) { display: none; }
+    .logo span { display: none; }
+    .hero { min-height: auto; padding-top: 112px; }
+    .tal { gap: 0 20px; } .tal b { font-size: 38px; }
+    .galleri { grid-template-columns: 1fr; }
+    .foto.stor { grid-column: auto; }
+    .foto, .foto.stor { aspect-ratio: 4 / 5; }
+    .plan { grid-template-columns: 1fr 1fr; }
+    .tag { height: 64px; }
+    .tom { display: none; }
+    .bred, .jord { grid-column: 1 / 3; }
+    .huset { border-radius: 26px 26px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .streg, .flade { stroke-dashoffset: 0; } .fyld { opacity: 1; } .flade { fill-opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="DOKA Ejendomme">
+      <svg viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <path d="M5 38 V21 L19 9 L33 21 V38" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 38 V24 L42 6 L58 22" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <b>DOKA</b><span>Ejendomme</span>
+    </a>
+    <nav class="menu">
+      <a href="#ledig">Lejligheden</a>
+      <a href="#huset">Huset</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="pill sort" href="fremvisning.html">Book fremvisning</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="hero-tekst">
+      <h1>Bo midt i <em class="serif">Rønde.</em></h1>
+      <div class="side">
+        <p>Hovedgaden 70 er et rødt murstenshus med kviste og altaner. Fire lejligheder og to erhvervslokaler ud mod Drosselvej. Indkøb lige om hjørnet og kort vej til Kalø Vig og Mols Bjerge.</p>
+        <a class="pill orange" href="#ledig">Se den ledige lejlighed <span class="pil">→</span></a>
+      </div>
+    </div>
+    <div class="tegning">
+      <div id="hus3d" class="hus3d" aria-label="Hovedgaden 70 i 3D. Træk for at dreje huset."></div>
+      <p class="dreje-hint">Træk i huset for at dreje det. Vælg et lejemål herunder, så lyser det op i huset.</p>
+<img class="reserve" src="billeder/huset-3d.png" width="1600" height="800" alt="Tegning af Hovedgaden 70 i Rønde: rødt murstenshus med to kviste og altaner, butikkerne bagved og parkering">
+    </div>
+    <div class="enheder" id="huset">
+      <div class="enheder-hoved">
+        <p class="smaa">Huset · seks lejemål under ét tag</p>
+        <p>Er der ikke noget ledigt, der passer dig, så skriv alligevel. Vi gemmer din henvendelse, til der bliver noget ledigt.</p>
+      </div>
+      <div class="enhed-raekke">
+        <button type="button" class="enhed-knap" data-enhed="2-sal" aria-label="2. sal, Lejlighed · 105 m², Udlejet"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone her"/><path d="M10 18 H46 V30 H10 Z" class="zone"/><path d="M10 30 H28 V42 H10 Z" class="zone"/><path d="M28 30 H46 V42 H28 Z" class="zone"/><path d="M46 31 H60 V42 H46 Z" class="zone"/><path d="M60 31 H74 V42 H60 Z" class="zone"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>2. sal</b><span>Lejlighed · 105 m²</span><em><i></i>Udlejet</em></button>
+        <button type="button" class="enhed-knap" data-enhed="1-sal" aria-label="1. sal, Lejlighed · 117 m², Udlejet"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone"/><path d="M10 18 H46 V30 H10 Z" class="zone her"/><path d="M10 30 H28 V42 H10 Z" class="zone"/><path d="M28 30 H46 V42 H28 Z" class="zone"/><path d="M46 31 H60 V42 H46 Z" class="zone"/><path d="M60 31 H74 V42 H60 Z" class="zone"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>1. sal</b><span>Lejlighed · 117 m²</span><em><i></i>Udlejet</em></button>
+        <button type="button" class="enhed-knap ledig" data-enhed="stuen-tv" aria-label="Stuen tv, Lejlighed · 63 m² · 2 vær., Ledig 1. november"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone"/><path d="M10 18 H46 V30 H10 Z" class="zone"/><path d="M10 30 H28 V42 H10 Z" class="zone her"/><path d="M28 30 H46 V42 H28 Z" class="zone"/><path d="M46 31 H60 V42 H46 Z" class="zone"/><path d="M60 31 H74 V42 H60 Z" class="zone"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>Stuen tv</b><span>Lejlighed · 63 m² · 2 vær.</span><em><i></i>Ledig 1. november</em></button>
+        <button type="button" class="enhed-knap" data-enhed="stuen-th" aria-label="Stuen th, Lejlighed · 69 m² · 2 vær., Udlejet"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone"/><path d="M10 18 H46 V30 H10 Z" class="zone"/><path d="M10 30 H28 V42 H10 Z" class="zone"/><path d="M28 30 H46 V42 H28 Z" class="zone her"/><path d="M46 31 H60 V42 H46 Z" class="zone"/><path d="M60 31 H74 V42 H60 Z" class="zone"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>Stuen th</b><span>Lejlighed · 69 m² · 2 vær.</span><em><i></i>Udlejet</em></button>
+        <button type="button" class="enhed-knap" data-enhed="erhverv-syd" aria-label="Erhverv syd, Erhverv · 50 m², Udlejet"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone"/><path d="M10 18 H46 V30 H10 Z" class="zone"/><path d="M10 30 H28 V42 H10 Z" class="zone"/><path d="M28 30 H46 V42 H28 Z" class="zone"/><path d="M46 31 H60 V42 H46 Z" class="zone her"/><path d="M60 31 H74 V42 H60 Z" class="zone"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>Erhverv syd</b><span>Erhverv · 50 m²</span><em><i></i>Udlejet</em></button>
+        <button type="button" class="enhed-knap" data-enhed="erhverv-nord" aria-label="Erhverv nord, Erhverv · 80 m², Udlejet"><svg class="mini" viewBox="0 0 80 48" aria-hidden="true"><path d="M10 18 L28 5 L46 18 Z" class="zone"/><path d="M10 18 H46 V30 H10 Z" class="zone"/><path d="M10 30 H28 V42 H10 Z" class="zone"/><path d="M28 30 H46 V42 H28 Z" class="zone"/><path d="M46 31 H60 V42 H46 Z" class="zone"/><path d="M60 31 H74 V42 H60 Z" class="zone her"/><path d="M10 42 V18 L28 5 L46 18 V42 Z M10 30 H46 M10 18 H46 M28 30 V42 M46 31 H74 V42 H46 M60 31 V42" class="omrids"/><path d="M4 42 H78" class="jord"/></svg><b>Erhverv nord</b><span>Erhverv · 80 m²</span><em><i></i>Udlejet</em></button>
+      </div>
+      <div class="enhed-info" id="enhedInfo" hidden aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="ledig">
+  <div class="wrap ledig-grid">
+    <div class="info">
+      <span class="chip"><i></i>Ledig fra 1. november 2026 · Fremvisning onsdag 28. oktober</span>
+      <h2>Nyistandsat 2-værelses i <em class="serif">stuen.</em></h2>
+      <p>Lys 2-værelses lejlighed i stueetagen på Hovedgaden 70 i Rønde. Lejligheden blev sat i stand i januar 2026 og er nymalet overalt. Køkkenet har nyt gulv, nyt loft og ny bordplade.</p>
+      <div class="tal">
+        <div><b>63</b><span>m²</span></div>
+        <div><b>2</b><span>værelser</span></div>
+        <div><b>6.200</b><span>kr. om måneden i alt</span></div>
+      </div>
+      <dl class="fakta">
+        <dt>Husleje</dt><dd>5.500 kr. om måneden</dd>
+        <dt>Aconto varme og vand</dt><dd>400 kr. + 300 kr.</dd>
+        <dt>Depositum</dt><dd>16.500 kr. (3 måneders husleje)</dd>
+        <dt>Lejeperiode</dt><dd>Ubegrænset</dd>
+        <dt>Husdyr og rygning</dt><dd>Røgfri bolig, ingen husdyr</dd>
+        <dt>Regulering</dt><dd>Nettoprisindeks hver 1. januar</dd>
+        <dt>Adresse</dt><dd>Hovedgaden 70, st. tv., 8410 Rønde</dd>
+      </dl>
+      <div class="knapper">
+        <a class="pill orange" href="fremvisning.html">Book fremvisning <span class="pil">→</span></a>
+        <a class="pill sort" href="mailto:info@dokaejendomme.dk?subject=Stuen%20tv%2C%20Hovedgaden%2070">Skriv til os</a>
+        <a class="pill kant" href="tel:+4532331663">Ring 32 33 16 63</a>
+      </div>
+    </div>
+
+    <div class="galleri">
+      <a class="foto stor" href="#b5"><img src="billeder/stuen-tv-05-stue.jpg" alt="Stuen med tre fag vinduer mod gaden" loading="lazy"><span>Stue</span></a>
+      <a class="foto" href="#b2"><img src="billeder/stuen-tv-02-koekken-alrum.jpg" alt="Køkken og alrum med dør mod haven" loading="lazy"><span>Køkken og alrum</span></a>
+      <a class="foto" href="#b3"><img src="billeder/stuen-tv-03-koekken.jpg" alt="Køkken med ny bordplade" loading="lazy"><span>Køkken</span></a>
+      <a class="foto" href="#b1"><img src="billeder/stuen-tv-01-vaerelse.jpg" alt="Værelse" loading="lazy"><span>Værelse</span></a>
+      <a class="foto" href="#b4"><img src="billeder/stuen-tv-04-bad.jpg" alt="Bad med bruseniche" loading="lazy"><span>Bad</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="lys" id="b1"><a class="luk" href="#ledig" aria-label="Luk">×</a><img src="billeder/stuen-tv-01-vaerelse.jpg" alt="Værelse"></div>
+<div class="lys" id="b2"><a class="luk" href="#ledig" aria-label="Luk">×</a><img src="billeder/stuen-tv-02-koekken-alrum.jpg" alt="Køkken og alrum"></div>
+<div class="lys" id="b3"><a class="luk" href="#ledig" aria-label="Luk">×</a><img src="billeder/stuen-tv-03-koekken.jpg" alt="Køkken"></div>
+<div class="lys" id="b4"><a class="luk" href="#ledig" aria-label="Luk">×</a><img src="billeder/stuen-tv-04-bad.jpg" alt="Bad"></div>
+<div class="lys" id="b5"><a class="luk" href="#ledig" aria-label="Luk">×</a><img src="billeder/stuen-tv-05-stue.jpg" alt="Stue"></div>
+
+<!-- Oversigten etage for etage er flyttet op til 3D-huset (2026-10-22). Den gamle udgave ligger i prøve 10 (2026-10-22).html -->
+
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div class="kom">
+      <p class="smaa">Kontakt</p>
+      <h2>Spørgsmål om et lejemål? Skriv til os.</h2>
+      <a class="stor-mail" href="mailto:info@dokaejendomme.dk">info@dokaejendomme.dk</a>
+    </div>
+    <div class="kontakt-bund kom">
+      <div><small>Telefon, hverdage 10 til 16</small><a href="tel:+4532331663" style="text-decoration:none">32 33 16 63</a></div>
+      <div><small>Ejendommen</small>Hovedgaden 70, 8410 Rønde</div>
+      <div><small>Udlejer</small>Doka Ejendomme ApS · CVR 45703959</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">
+      <svg viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <path d="M5 38 V21 L19 9 L33 21 V38" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 38 V24 L42 6 L58 22" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <b>DOKA</b><span>Ejendomme</span>
+    </span>
+    <span>Doka Ejendomme ApS · CVR 45703959 · Hovedgaden 70, 8410 Rønde</span>
+  </div>
+</footer>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="hus3d.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book fremvisning · DOKA Ejendomme</title>
+<meta name="description" content="Book en tid til fremvisning af lejligheden på Hovedgaden 70 i Rønde. Vælg et kvarter, der passer dig.">
+<meta property="og:title" content="Book fremvisning · Hovedgaden 70, Rønde">
+<meta property="og:description" content="Vælg et kvarter til fremvisning af den ledige 2-værelses lejlighed i Rønde.">
+<meta property="og:image" content="billeder/stuen-tv-05-stue.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62 40'%3E%3Cpath d='M5 38 V21 L19 9 L33 21 V38' stroke='%23ee8a43' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M23 38 V24 L42 6 L58 22' stroke='%23ee8a43' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #ee8a43;
+    --orange-dyb: #c8622a;
+    --orange-lys: #fde7d5;
+    --ink: #1d1b19;
+    --ink-2: #5d5853;
+    --creme: #faf6f0;
+    --linje: #e9e1d6;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--creme); color: var(--ink);
+    font-family: "DM Sans", Arial, sans-serif; font-size: 18px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.035em; margin: 0; }
+  em.serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--orange-dyb); }
+  .smaa { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-dyb); margin: 0 0 14px; }
+
+  .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo svg { width: 44px; height: 30px; }
+  .logo b { font-weight: 800; letter-spacing: 0.04em; font-size: 20px; }
+  .logo span { font-weight: 500; color: var(--ink-2); font-size: 20px; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+  .tilbage { font-size: 16px; font-weight: 500; text-decoration: none; }
+  .tilbage:hover { color: var(--orange-dyb); }
+
+  .pill { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; border-radius: 999px; border: 0;
+    font: 700 17px "DM Sans", Arial, sans-serif; text-decoration: none; cursor: pointer; transition: transform .25s, background .25s, color .25s; }
+  .pill.orange { background: var(--orange); color: var(--ink); }
+  .pill.orange:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .pill[disabled] { opacity: .5; cursor: default; transform: none; }
+
+  .intro { padding: 40px 0 36px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: end; }
+  .intro h1 { font-size: clamp(44px, 6.4vw, 88px); line-height: .98; }
+  .intro p { color: var(--ink-2); margin: 18px 0 0; max-width: 46ch; }
+  .intro img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+
+  .fakta { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 22px 0 0; padding: 0; list-style: none; font-size: 16px; }
+  .fakta li { display: flex; gap: 8px; align-items: baseline; }
+  .fakta b { font-weight: 700; }
+
+  .kort { background: #fff; border-radius: var(--radius); padding: 36px; margin-bottom: 80px; box-shadow: 0 1px 0 var(--linje); }
+  .trin { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .trin h2 { font-size: 30px; margin-bottom: 6px; }
+  .trin .hjaelp { color: var(--ink-2); font-size: 16px; margin: 0 0 20px; }
+  .dag { font-weight: 700; font-size: 16px; margin: 0 0 12px; text-transform: capitalize; }
+  .tider { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
+  .tid { padding: 14px 0; border-radius: 14px; border: 1.5px solid var(--linje); background: var(--creme);
+    font: 700 17px "DM Sans", Arial, sans-serif; color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+  .tid:hover:not([disabled]) { border-color: var(--orange); }
+  .tid[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); }
+  .tid[disabled] { color: #b9b3ab; background: #f3efe9; text-decoration: line-through; cursor: default; }
+  .forklaring { font-size: 14px; color: var(--ink-2); display: flex; gap: 18px; flex-wrap: wrap; }
+  .forklaring span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: -1px; border: 1.5px solid var(--linje); background: var(--creme); }
+  .forklaring .opt::before { background: #f3efe9; }
+  .forklaring .valgt::before { background: var(--orange); border-color: var(--orange); }
+
+  form label { display: block; font-size: 15px; font-weight: 700; margin: 0 0 6px; }
+  form .felt { margin-bottom: 16px; }
+  form input, form select { width: 100%; padding: 14px 16px; border-radius: 14px; border: 1.5px solid var(--linje); background: var(--creme);
+    font: 400 17px "DM Sans", Arial, sans-serif; color: var(--ink); }
+  form input:focus, form select:focus { outline: none; border-color: var(--orange); background: #fff; }
+  .valgt-tid { background: var(--orange-lys); color: var(--orange-dyb); border-radius: 14px; padding: 12px 16px; font-weight: 700; font-size: 16px; margin-bottom: 18px; }
+  .faelde { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .fejl { color: #a33a1f; font-weight: 700; font-size: 16px; margin: 0 0 14px; }
+  .lille { font-size: 14px; color: var(--ink-2); margin: 14px 0 0; }
+  .indlaeser { color: var(--ink-2); font-size: 16px; }
+
+  .tak { text-align: center; padding: 40px 10px; }
+  .tak .flueben { width: 72px; height: 72px; border-radius: 50%; background: var(--orange); margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; }
+  .tak h2 { font-size: clamp(34px, 4.6vw, 54px); line-height: 1.05; margin-bottom: 14px; }
+  .tak p { color: var(--ink-2); max-width: 48ch; margin: 0 auto 10px; }
+  .tak .tid-stor { font-size: 22px; color: var(--ink); font-weight: 700; margin: 18px auto; }
+
+  footer { background: var(--ink); color: rgba(255,255,255,.6); font-size: 14px; padding: 28px 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  footer .logo b { color: #fff; font-size: 16px; } footer .logo span { color: rgba(255,255,255,.6); font-size: 16px; }
+  footer .logo svg { width: 34px; height: 24px; }
+
+  @media (max-width: 860px) {
+    .intro { grid-template-columns: 1fr; gap: 24px; }
+    .trin { grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .logo span { display: none; }
+    .intro { padding-top: 16px; }
+    .kort { padding: 22px 18px; margin-bottom: 48px; }
+    .tider { grid-template-columns: repeat(3, 1fr); }
+    .pill { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="DOKA Ejendomme, forsiden">
+      <svg viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <path d="M5 38 V21 L19 9 L33 21 V38" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 38 V24 L42 6 L58 22" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <b>DOKA</b><span>Ejendomme</span>
+    </a>
+    <a class="tilbage" href="./#ledig">Se lejligheden</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <p class="smaa">Fremvisning</p>
+      <h1>Kom og se <em class="serif">lejligheden.</em></h1>
+      <p>Vælg et kvarter, der passer dig. Vi står klar på adressen og viser dig rundt. Tag gerne den med, du skal bo sammen med.</p>
+      <ul class="fakta">
+        <li><b>Hvor</b> Hovedgaden 70, st. tv., 8410 Rønde</li>
+        <li><b>Lejlighed</b> 2 værelser, 63 m²</li>
+        <li><b>Husleje i alt</b> 6.200 kr. om måneden</li>
+      </ul>
+    </div>
+    <img src="billeder/stuen-tv-05-stue.jpg" alt="Stuen i lejligheden med tre fag vinduer" width="1200" height="900">
+  </section>
+
+  <div class="kort" id="booking">
+    <div class="trin" id="trin">
+      <div>
+        <h2>1. Vælg en tid</h2>
+        <p class="hjaelp">Hver tid er et kvarter, og hver tid kan kun bookes af én.</p>
+        <div id="tidsliste"><p class="indlaeser">Henter ledige tider …</p></div>
+        <div class="forklaring"><span>Ledig</span><span class="valgt">Valgt</span><span class="opt">Optaget</span></div>
+      </div>
+      <div>
+        <h2>2. Dine oplysninger</h2>
+        <p class="hjaelp">Så ved vi, hvem vi venter på, og kan ringe, hvis noget ændrer sig.</p>
+        <form id="formular" novalidate>
+          <div class="valgt-tid" id="valgtTid">Vælg først en tid til venstre.</div>
+          <div class="felt"><label for="navn">Navn</label><input id="navn" name="navn" autocomplete="name" required></div>
+          <div class="felt"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="felt"><label for="mail">Mail</label><input id="mail" name="mail" type="email" autocomplete="email" required></div>
+          <div class="felt"><label for="lejemaal">Hvilket lejemål?</label>
+            <select id="lejemaal" name="lejemaal">
+              <option>Stuen tv, 2 værelser, 63 m²</option>
+              <option>Et andet lejemål</option>
+            </select>
+          </div>
+          <div class="faelde" aria-hidden="true"><label for="hjemmeside">Lad dette felt være tomt</label><input id="hjemmeside" name="hjemmeside" tabindex="-1" autocomplete="off"></div>
+          <p class="fejl" id="fejl" hidden></p>
+          <button class="pill orange" id="send" type="submit" disabled>Book tiden</button>
+          <p class="lille">Vi bruger kun dine oplysninger til fremvisningen og sletter dem, når lejligheden er udlejet.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="tak" id="tak" hidden>
+      <div class="flueben"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1d1b19" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>Tak, din tid er booket.</h2>
+      <p class="tid-stor" id="takTid"></p>
+      <p>Mød op på Hovedgaden 70, 8410 Rønde. Lejligheden ligger i stuen til venstre.</p>
+      <p>Kan du ikke komme alligevel, så skriv til <a href="mailto:info@dokaejendomme.dk">info@dokaejendomme.dk</a>, så tiden kan gå til en anden.</p>
+      <p>Tag gerne et billede af skærmen, så du har tiden.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">
+      <svg viewBox="0 0 62 40" fill="none" aria-hidden="true">
+        <path d="M5 38 V21 L19 9 L33 21 V38" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 38 V24 L42 6 L58 22" stroke="#ee8a43" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <b>DOKA</b><span>Ejendomme</span>
+    </span>
+    <span>Doka Ejendomme ApS · CVR 45703959 · Hovedgaden 70, 8410 Rønde</span>
+  </div>
+</footer>
+
+<script>
+// Bookingen gemmes i Google Sheet'et "Doka fremvisninger" på info@dokaejendomme.dk via Apps Script (booking/Kode.gs).
+const API = 'WEBAPP_URL';
+const liste = document.getElementById('tidsliste');
+const knap = document.getElementById('send');
+const fejl = document.getElementById('fejl');
+const valgtTid = document.getElementById('valgtTid');
+let valgt = null;
+
+function dagNavn(iso) {
+  const d = new Date(iso + 'T12:00:00');
+  return d.toLocaleDateString('da-DK', { weekday: 'long', day: 'numeric', month: 'long' });
+}
+
+function visFejl(tekst) {
+  fejl.textContent = tekst;
+  fejl.hidden = !tekst;
+}
+
+async function hentTider() {
+  try {
+    const svar = await fetch(API + '?t=' + Date.now());
+    const data = await svar.json();
+    tegn(data.tider || []);
+  } catch (e) {
+    liste.innerHTML = '<p class="fejl">Tiderne kunne ikke hentes. Prøv at genindlæse siden, eller skriv til info@dokaejendomme.dk.</p>';
+  }
+}
+
+function tegn(tider) {
+  if (!tider.length) {
+    liste.innerHTML = '<p class="indlaeser">Der er ingen fremvisninger lige nu. Skriv til info@dokaejendomme.dk.</p>';
+    return;
+  }
+  const dage = {};
+  tider.forEach(t => { (dage[t.dato] = dage[t.dato] || []).push(t); });
+  liste.innerHTML = '';
+  Object.keys(dage).sort().forEach(dato => {
+    const h = document.createElement('p');
+    h.className = 'dag';
+    h.textContent = dagNavn(dato);
+    const g = document.createElement('div');
+    g.className = 'tider';
+    dage[dato].forEach(t => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tid';
+      b.textContent = t.tid;
+      b.disabled = !t.ledig;
+      b.setAttribute('aria-pressed', valgt && valgt.id === t.id ? 'true' : 'false');
+      b.setAttribute('aria-label', dagNavn(t.dato) + ' kl. ' + t.tid + (t.ledig ? '' : ', optaget'));
+      b.addEventListener('click', () => vaelg(t, b));
+      g.appendChild(b);
+    });
+    liste.append(h, g);
+  });
+  if (valgt && !tider.some(t => t.id === valgt.id && t.ledig)) {
+    valgt = null;
+    opdaterValg();
+  }
+}
+
+function vaelg(t, b) {
+  valgt = t;
+  liste.querySelectorAll('.tid').forEach(x => x.setAttribute('aria-pressed', 'false'));
+  b.setAttribute('aria-pressed', 'true');
+  opdaterValg();
+  visFejl('');
+  if (window.matchMedia('(max-width: 860px)').matches) document.getElementById('valgtTid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function opdaterValg() {
+  valgtTid.textContent = valgt ? 'Din tid: ' + dagNavn(valgt.dato) + ' kl. ' + valgt.tid : 'Vælg først en tid til venstre.';
+  knap.disabled = !valgt;
+}
+
+document.getElementById('formular').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!valgt) return;
+  const f = e.target;
+  const data = {
+    tid: valgt.id, navn: f.navn.value, telefon: f.telefon.value, mail: f.mail.value,
+    lejemaal: f.lejemaal.value, hjemmeside: f.hjemmeside.value
+  };
+  if (data.navn.trim().length < 2) return visFejl('Skriv dit navn.');
+  if (data.telefon.replace(/\D/g, '').length < 8) return visFejl('Skriv et telefonnummer med mindst 8 cifre.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.mail.trim())) return visFejl('Skriv en gyldig mailadresse.');
+  visFejl('');
+  knap.disabled = true;
+  knap.textContent = 'Booker …';
+  try {
+    const svar = await fetch(API, { method: 'POST', body: JSON.stringify(data) });
+    const r = await svar.json();
+    if (r.ok) {
+      document.getElementById('trin').hidden = true;
+      document.getElementById('takTid').textContent = dagNavn(r.dato || valgt.dato) + ' kl. ' + (r.tid || valgt.tid);
+      document.getElementById('tak').hidden = false;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+    visFejl(r.fejl || 'Noget gik galt. Prøv igen.');
+    if (r.opdater) await hentTider();
+  } catch (err) {
+    visFejl('Bookingen gik ikke igennem. Tjek forbindelsen og prøv igen.');
+  }
+  knap.textContent = 'Book tiden';
+  knap.disabled = !valgt;
+});
+
+hentTider();
+</script>
+</body>
+</html>
