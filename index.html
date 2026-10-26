@@ -394,6 +394,23 @@
   .stor-mail:hover { color: #fff; border-color: #fff; }
   .kontakt-bund { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 80px; padding-top: 28px; border-top: 1.5px solid var(--ink); }
   .kontakt-bund small { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; opacity: .7; }
+  /* Kontaktformular (2026-10-26) */
+  [hidden] { display: none !important; }
+  .kontakt-top { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .formular { background: var(--creme); border-radius: var(--radius); padding: 32px; display: grid; gap: 16px; }
+  .formular h3 { margin: 0; font-size: 24px; letter-spacing: -0.02em; }
+  .formular .to { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .formular label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
+  .formular label span { font-weight: 400; opacity: .6; }
+  .formular input, .formular textarea { font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1.5px solid var(--linje); border-radius: 12px; padding: 12px 14px; width: 100%; box-sizing: border-box; }
+  .formular textarea { min-height: 140px; resize: vertical; }
+  .formular input:focus, .formular textarea:focus { outline: none; border-color: var(--orange-dyb); }
+  .formular button { justify-self: start; border: 0; cursor: pointer; font: inherit; }
+  .formular button:disabled { opacity: .6; cursor: wait; }
+  .formular .fejl { color: #a3341b; font-size: 15px; margin: 0; }
+  .formular .faelde { position: absolute; left: -9999px; }
+  .formular-tak { background: var(--creme); border-radius: var(--radius); padding: 32px; }
+  .formular-tak h3 { margin: 0 0 8px; font-size: 24px; }
   .mangler { background: #fff3c4; padding: 2px 8px; border-radius: 4px; font-size: 15px; font-weight: 500; }
 
   footer { background: var(--ink); color: rgba(255,255,255,.6); font-size: 14px; padding: 28px 0; }
@@ -407,6 +424,7 @@
     .info { position: static; }
     section { padding: 96px 0; }
     .kontakt-bund { grid-template-columns: 1fr; gap: 20px; }
+    .kontakt-top { grid-template-columns: 1fr; gap: 40px; }
   }
   @media (max-width: 640px) {
     .wrap { padding: 0 16px; }
@@ -422,6 +440,8 @@
     .tom { display: none; }
     .bred, .jord { grid-column: 1 / 3; }
     .huset { border-radius: 26px 26px 0 0; }
+    .formular, .formular-tak { padding: 22px; }
+    .formular .to { grid-template-columns: 1fr; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -507,7 +527,7 @@
       </dl>
       <div class="knapper">
         <a class="pill orange" href="fremvisning.html">Book fremvisning <span class="pil">→</span></a>
-        <a class="pill sort" href="mailto:info@dokaejendomme.dk?subject=Stuen%20tv%2C%20Hovedgaden%2070">Skriv til os</a>
+        <a class="pill sort" href="#kontakt">Skriv til os</a>
         <a class="pill kant" href="tel:+4523659026">Ring 23 65 90 26</a>
         <!-- Midlertidigt Benjamins nummer (26-10-2026). Skift tilbage til +4532331663 / 32 33 16 63, når Doka-nummeret virker. -->
       </div>
@@ -554,10 +574,31 @@
 
 <section class="kontakt" id="kontakt">
   <div class="wrap">
-    <div class="kom">
-      <p class="smaa">Kontakt</p>
-      <h2>Spørgsmål om et lejemål? Skriv til os.</h2>
-      <a class="stor-mail" href="mailto:info@dokaejendomme.dk">info@dokaejendomme.dk</a>
+    <div class="kontakt-top">
+      <div class="kom">
+        <p class="smaa">Kontakt</p>
+        <h2>Spørgsmål om et lejemål? Skriv til os.</h2>
+        <a class="stor-mail" href="mailto:info@dokaejendomme.dk">info@dokaejendomme.dk</a>
+      </div>
+      <!-- Kontaktformular (2026-10-26): sendes via Apps Script i arket "Doka fremvisninger" (fanen Beskeder) og mailes til info@dokaejendomme.dk med afsenderen som svaradresse. -->
+      <div class="kom">
+        <form class="formular" id="kontaktForm" novalidate>
+          <h3>Send en besked</h3>
+          <div class="to">
+            <label>Navn<input name="navn" autocomplete="name" required maxlength="100"></label>
+            <label>Mail<input name="mail" type="email" autocomplete="email" required maxlength="120"></label>
+          </div>
+          <label>Telefon <span>(frivilligt)</span><input name="telefon" type="tel" autocomplete="tel" maxlength="30"></label>
+          <label>Besked<textarea name="besked" required maxlength="3000" placeholder="Hvad vil du gerne vide?"></textarea></label>
+          <label class="faelde" aria-hidden="true">Hjemmeside<input name="hjemmeside" tabindex="-1" autocomplete="off"></label>
+          <p class="fejl" id="kontaktFejl" hidden></p>
+          <button class="pill sort" type="submit" id="kontaktKnap">Send besked <span class="pil">→</span></button>
+        </form>
+        <div class="formular-tak" id="kontaktTak" hidden>
+          <h3>Tak for din besked.</h3>
+          <p>Vi har modtaget den og svarer på mail så hurtigt vi kan.</p>
+        </div>
+      </div>
     </div>
     <div class="kontakt-bund kom">
       <div><small>Telefon</small><a href="tel:+4523659026" style="text-decoration:none">23 65 90 26</a></div>
@@ -580,6 +621,40 @@
   </div>
 </footer>
 
+<script>
+// Kontaktformular (2026-10-26). Samme Apps Script som bookingsiden.
+(function () {
+  const API = 'https://script.google.com/macros/s/AKfycbx5f19jrGXXNEWZolnnp0pI5n5dLm-QyCiQ0aajCYT8cBZ-RaJjRmwMqY9PH6LMYB3T/exec';
+  const form = document.getElementById('kontaktForm');
+  const fejl = document.getElementById('kontaktFejl');
+  const knap = document.getElementById('kontaktKnap');
+  function visFejl(t) { fejl.textContent = t; fejl.hidden = false; }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    fejl.hidden = true;
+    const d = Object.fromEntries(new FormData(form));
+    d.type = 'kontakt';
+    if (String(d.navn).trim().length < 2) return visFejl('Skriv dit navn.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(d.mail).trim())) return visFejl('Skriv en gyldig mailadresse.');
+    if (String(d.besked).trim().length < 5) return visFejl('Skriv en besked.');
+    knap.disabled = true;
+    const stop = new AbortController();
+    const ur = setTimeout(function () { stop.abort(); }, 30000);
+    try {
+      const svar = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(d), signal: stop.signal });
+      const r = await svar.json();
+      if (!r.ok) throw new Error(r.fejl || 'Noget gik galt. Prøv igen.');
+      form.hidden = true;
+      document.getElementById('kontaktTak').hidden = false;
+    } catch (err) {
+      visFejl(err.name === 'AbortError' || err instanceof TypeError ? 'Beskeden kunne ikke sendes. Prøv igen, eller skriv til info@dokaejendomme.dk.' : err.message);
+    } finally {
+      clearTimeout(ur);
+      knap.disabled = false;
+    }
+  });
+})();
+</script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
