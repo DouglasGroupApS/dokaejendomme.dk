@@ -286,10 +286,11 @@ async function hentTider() {
 }
 
 function tegn(alle) {
-  // Kun ledige tider vises. Optagne tider er bare væk (Benjamin 26-10: farven for optaget gav ikke mening).
+  // Kun ledige tider vises. Optagne og spærrede tider er bare væk, og intet på siden må afsløre,
+  // at andre har booket (Benjamin 26-10: "ellers så tror folk, der er for mange ud at se").
   const tider = alle.filter(t => t.ledig);
   if (!tider.length) {
-    liste.innerHTML = '<p class="indlaeser">Alle tider er booket. Skriv til info@dokaejendomme.dk, så hører du fra os.</p>';
+    liste.innerHTML = '<p class="indlaeser">Der er ingen ledige tider lige nu. Skriv til info@dokaejendomme.dk, så finder vi en tid.</p>';
     if (valgt) { valgt = null; opdaterValg(); }
     return;
   }
@@ -307,9 +308,8 @@ function tegn(alle) {
       b.type = 'button';
       b.className = 'tid';
       b.textContent = t.tid;
-      b.disabled = !t.ledig;
       b.setAttribute('aria-pressed', valgt && valgt.id === t.id ? 'true' : 'false');
-      b.setAttribute('aria-label', dagNavn(t.dato) + ' kl. ' + t.tid + (t.ledig ? '' : ', optaget'));
+      b.setAttribute('aria-label', dagNavn(t.dato) + ' kl. ' + t.tid);
       b.addEventListener('click', () => vaelg(t, b));
       g.appendChild(b);
     });
@@ -365,7 +365,7 @@ document.getElementById('formular').addEventListener('submit', async e => {
     visFejl(r.fejl || 'Noget gik galt. Prøv igen.');
     if (r.opdater) await hentTider();
   } catch (err) {
-    visFejl('Vi fik ikke svar. Genindlæs siden: står din tid som optaget, er den booket. Ellers prøv igen eller skriv til info@dokaejendomme.dk.');
+    visFejl('Vi fik ikke svar. Genindlæs siden: er din tid væk fra listen, er den booket. Ellers prøv igen eller skriv til info@dokaejendomme.dk.');
   }
   knap.textContent = 'Book tiden';
   knap.disabled = !valgt;
