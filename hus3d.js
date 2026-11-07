@@ -580,10 +580,13 @@ if (boks && renderer) {
   tilpas();
 
   // Træk for at dreje. Efter et træk venter den lidt og drejer så videre af sig selv
+  // På telefonen kan huset ikke trækkes. Det drejer selv, og et tryk vælger stadig lejemålet (Benjamin 07-11)
+  const hint = document.querySelector(".dreje-hint");
+  if (hint && window.matchMedia("(hover: none)").matches) hint.textContent = "Tryk på et lejemål herunder, så lyser det op i huset.";
   const rolig = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let traekker = false, sidstX = 0, sidstY = 0, pause = 0, sidstTid = performance.now();
   const flade3d = renderer.domElement;
-  flade3d.addEventListener("pointerdown", e => { traekker = true; sidstX = e.clientX; sidstY = e.clientY; flade3d.setPointerCapture(e.pointerId); boks.classList.add("traekker"); });
+  flade3d.addEventListener("pointerdown", e => { if (e.pointerType === "touch") return; traekker = true; sidstX = e.clientX; sidstY = e.clientY; flade3d.setPointerCapture(e.pointerId); boks.classList.add("traekker"); });
   flade3d.addEventListener("pointermove", e => {
     if (!traekker) return;
     vinkel -= (e.clientX - sidstX) * 0.35;
@@ -634,7 +637,7 @@ if (boks && renderer) {
   const straale = new THREE.Raycaster(), mus = new THREE.Vector2();
   let flyttet = 0;
   flade3d.addEventListener("pointerdown", () => { flyttet = 0; });
-  flade3d.addEventListener("pointermove", e => { if (traekker) flyttet += Math.abs(e.movementX) + Math.abs(e.movementY); });
+  flade3d.addEventListener("pointermove", e => { if (traekker || e.pointerType === "touch") flyttet += Math.abs(e.movementX) + Math.abs(e.movementY); });
   flade3d.addEventListener("pointerup", e => {
     if (flyttet > 6) return;
     const r = flade3d.getBoundingClientRect();

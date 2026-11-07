@@ -443,6 +443,15 @@
     .formular, .formular-tak { padding: 22px; }
     .formular .to { grid-template-columns: 1fr; }
   }
+  /* Telefon (Benjamin 07-11): huset drejer selv, billederne swipes sidelæns, lidt større småtekst */
+  @media (hover: none) { .hus3d canvas { cursor: default; } }
+  @media (max-width: 640px) {
+    .enhed-knap span, .enhed-knap em { font-size: 12.5px; }
+    .galleri { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -16px; padding: 0 16px 4px; scroll-padding: 0 16px; scrollbar-width: none; }
+    .galleri::-webkit-scrollbar { display: none; }
+    .galleri > * { flex: 0 0 84%; scroll-snap-align: start; }
+    .kontakt-bund a { display: inline-block; padding: 8px 0; }
+  }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .streg, .flade { stroke-dashoffset: 0; } .fyld { opacity: 1; } .flade { fill-opacity: 1; }
